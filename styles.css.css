@@ -1,0 +1,107 @@
+:root{
+  --bg:#0b0e14;
+  --panel:#121826;
+  --text:#e9eefc;
+  --muted:#9aa7c2;
+  --line:rgba(255,255,255,0.12);
+  --badge:rgba(0,255,209,0.16);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.wrap{max-width:980px;margin:0 auto;padding:18px}
+h1{margin:6px 0 6px;font-size:22px}
+.sub{margin:0;color:var(--muted)}
+
+.panel{
+  border:1px solid var(--line);
+  background:var(--panel);
+  border-radius:14px;
+  padding:16px;
+}
+
+.row{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+
+.toggle{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  user-select:none;
+  cursor:pointer;
+}
+.toggle.subtle{opacity:0.92}
+.toggle input{display:none}
+
+.toggle-ui{
+  width:46px;height:28px;border-radius:999px;
+  border:1px solid var(--line);
+  position:relative;
+  background:rgba(255,255,255,0.06);
+}
+.toggle-ui::after{
+  content:"";
+  position:absolute;
+  top:3px;left:3px;
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(255,255,255,0.85);
+  transition:transform 180ms ease;
+}
+.toggle input:checked + .toggle-ui::after{transform:translateX(18px)}
+.toggle-text{color:var(--text)}
+
+.player-wrap{
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+
+.badge{
+  position:absolute;
+  top:12px;left:12px;
+  padding:8px 10px;border-radius:999px;
+  background:var(--badge);
+  border:1px solid rgba(0,255,209,0.22);
+  font-weight:700;font-size:12px;
+  backdrop-filter:blur(8px);
+}
+
+.video-js{
+  width:100%;
+  aspect-ratio:16/9;
+  height:auto;
+}
+
+/* ---- Spoiler-Free Mode: hide time leaks ---- */
+.vjs-spoilerfree .vjs-duration,
+.vjs-spoilerfree .vjs-remaining-time,
+.vjs-spoilerfree .vjs-time-divider{
+  display:none !important;
+}
+
+/* Hide hover time tooltips on the scrub bar */
+.vjs-spoilerfree .vjs-mouse-display,
+.vjs-spoilerfree .vjs-time-tooltip,
+.vjs-spoilerfree .vjs-mouse-display *{
+  display:none !important;
+}
+
+/* Extra strict: hide seek bar entirely */
+.vjs-hide-seek .vjs-progress-control{
+  display:none !important;
+}
+
+.notes{margin-top:12px;color:var(--muted);font-size:14px}
+code{background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:6px}

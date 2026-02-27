@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spoiler-Free Replay Demo</title>
+
+  <!-- Video.js CSS -->
+  <link rel="stylesheet" href="https://vjs.zencdn.net/8.10.0/video-js.css">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <h1>Spoiler-Free Replay Mode (Demo)</h1>
+    <p class="sub">Toggle Spoiler-Free to hide duration + time leakage in replays.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="row">
+        <label class="toggle">
+          <input id="spoilerToggle" type="checkbox" />
+          <span class="toggle-ui" aria-hidden="true"></span>
+          <span class="toggle-text">Spoiler-Free Mode</span>
+        </label>
+
+        <label class="toggle subtle">
+          <input id="hideSeekToggle" type="checkbox" />
+          <span class="toggle-ui" aria-hidden="true"></span>
+          <span class="toggle-text">Extra strict: hide seek bar</span>
+        </label>
+      </div>
+
+      <div class="player-wrap">
+        <video
+          id="demoPlayer"
+          class="video-js vjs-big-play-centered"
+          playsinline
+          webkit-playsinline
+          preload="auto"
+        >
+          <!-- Demo MP4. Replace with any MP4 you like. -->
+          <source
+            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        <div id="modeBadge" class="badge" hidden>Spoiler-Free ON</div>
+      </div>
+
+      <div class="notes">
+        <p><strong>Swap the video:</strong> replace the <code>src</code> above with any MP4 URL.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Video.js -->
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
